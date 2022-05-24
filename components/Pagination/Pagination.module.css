@@ -1,0 +1,35 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    margin: 12px;
+    
+    background-color: #DFE4EA;
+
+    border-radius: 5px;
+
+    color: #7F8FA6;
+    font-weight: 800; 
+
+    user-select: none;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #7F8FA6;
+
+    font-weight: 900;
+    color: #DFE4EA;
+}

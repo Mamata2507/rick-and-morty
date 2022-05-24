@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading {
+    margin: 0;
+
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.search {
+    padding-left: 12px;
+
+    width: 272px;
+    height: 42px;
+
+    border: 0;
+    border-radius: 5px;
+
+    outline: 0.5px solid #7F8FA6;
+    transition: outline 0.1s linear;
+
+    font-size: 12px;
+}
+
+.search:focus {
+    outline: 3px solid #74b9ff;
+}
+
+@media only screen and (max-width: 864px) {
+    .header {
+        flex-direction: column;
+        justify-content: normal;
+    }
+
+    .search {
+        margin-top: 16px;
+
+        width: 100%;
+    }
+}
