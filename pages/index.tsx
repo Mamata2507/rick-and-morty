@@ -6,22 +6,14 @@ import { Pagination } from "../components/Pagination"
 import { LocationType } from "../types/location"
 import { InfoType } from "../types/info"
 
-import styles from "../styles/Locations.module.css"
+import styles from "../styles/LocationsPage.module.css"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try{
     const page = context.query.page ? context.query.page : 1;
     const response = await fetch(`https://rickandmortyapi.com/api/location?page=${page}`);
     const data = await response.json();
-
-    if(data.error) {
-      return {
-        redirect: {
-          destination: "/500",
-          permanent: false,
-        }
-      }
-    }
+    if(data.error) return { redirect: { destination: "/404", permanent: false } }
 
     return {
       props: {
@@ -31,12 +23,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       }
     }
   }catch {
-    return {
-      redirect: {
-        destination: "/500",
-        permanent: false,
-      }
-    }
+    return { redirect: { destination: "/500", permanent: false } }
   }
 }
 
@@ -84,4 +71,4 @@ function Home({ page, locations, info }: HomeProps) {
   )
 }
 
-export default Home;
+export default Home

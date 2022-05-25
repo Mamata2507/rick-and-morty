@@ -33,8 +33,12 @@
     margin-right: 18px;
 }
 
+.info > div > span {
+    flex-shrink: 0;
+}
+
 .badge {
-    width: 125px;
+    width: 100px;
     height: 25px;
     
     display: flex;

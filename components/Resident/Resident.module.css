@@ -1,0 +1,96 @@
+.resident {
+    width: 100%;
+
+    background-color: #FFFFFF;
+
+    border-radius: 5px;
+    border: 0.5px solid #7F8FA6;
+}
+
+.image-container {
+    width: 100%;
+}
+
+.image {
+    border: 0.5px solid #7F8FA6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    max-height: 200px;
+}
+
+.name-container {
+    margin-right: 16px;
+    margin-left: 16px;
+    margin-top: 12px;
+}
+
+.name {
+    margin: 0;
+
+    font-weight: 700;
+    font-size: 21px;
+
+    word-wrap: break-word;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+
+    margin-right: 16px;
+    margin-left: 16px;
+    margin-top: 4px;
+
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.status > span {
+    display: inline-block;
+
+    margin-right: 4px;
+
+    height: 12px;
+    width: 12px;
+    
+    border-radius: 50%;
+}
+
+.Alive {
+    background-color: #2ECC71;
+}
+
+.Dead {
+    background-color: #E74C3C;
+}
+
+.unknown {
+    background-color: #F1C40F;
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 12px;
+
+    margin-right: 16px;
+    margin-left: 16px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.info {
+    word-break: break-word;
+}
+
+.info > span {
+    color: #7F8FA6;
+}
+
+.info > p {
+    margin: 0;
+}
