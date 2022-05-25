@@ -36,16 +36,8 @@ interface HomeProps {
 function Home({ page, locations, info }: HomeProps) {
   return (
     <Layout>
-      <div className={styles.header}>
-        <div>
+      <div>
           <h1 className={styles.heading}>Locations</h1>
-        </div>
-        <div>
-          <input 
-            className={styles.search}
-            placeholder="Search location by name"
-          />
-        </div>
       </div>
       <div className={styles.locations}>
         { 

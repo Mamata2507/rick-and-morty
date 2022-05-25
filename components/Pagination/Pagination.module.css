@@ -25,6 +25,16 @@
 
     user-select: none;
     cursor: pointer;
+
+    transition: outline 0.1s linear;
+}
+
+.page:hover {
+    background-color: #BDC3C7;
+}
+
+.page:active {
+    outline: 3px solid #74b9ff;
 }
 
 .active {
