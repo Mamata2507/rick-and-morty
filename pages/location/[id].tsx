@@ -1,3 +1,4 @@
+import Head from "next/head"
 import { GetServerSideProps } from "next"
 import { Layout } from "../../components/Layout"
 import { Resident } from "../../components/Resident"
@@ -6,8 +7,6 @@ import { LocationType } from "../../types/location"
 import { ResidentType } from "../../types/resident"
 
 import styles from "../../styles/ResidentsPage.module.css"
-
-
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const ids: Array<Number> = [0];
@@ -45,6 +44,10 @@ interface ResidentsProps {
 function Residents({ location, residents, error }: ResidentsProps) {
     return (
         <Layout>
+            <Head>
+                { /* eslint-disable-next-line react/no-unescaped-entities */ }
+                <title>Rick and Morty - { location.name }'s residents</title>
+            </Head>
             <div className={styles.header}>
                 { /* eslint-disable-next-line react/no-unescaped-entities */ }
                 <h1 className={styles.heading}>{ location.name }'s residents</h1>

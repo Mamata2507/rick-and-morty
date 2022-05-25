@@ -1,3 +1,4 @@
+import Head from "next/head"
 import { GetServerSideProps } from "next"
 import { Layout } from "../components/Layout"
 import { Location } from "../components/Location"
@@ -36,6 +37,9 @@ interface HomeProps {
 function Home({ page, locations, info }: HomeProps) {
   return (
     <Layout>
+      <Head>
+        <title>Rick and Morty - Locations</title>
+      </Head>
       <div>
           <h1 className={styles.heading}>Locations</h1>
       </div>
