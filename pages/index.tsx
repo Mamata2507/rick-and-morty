@@ -16,13 +16,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const data = await response.json();
     if(data.error) return { redirect: { destination: "/404", permanent: false } }
 
-    return {
-      props: {
-        page,
-        locations: data.results,
-        info: data.info
-      }
-    }
+    return { props: { page, locations: data.results, info: data.info } }
   }catch {
     return { redirect: { destination: "/500", permanent: false } }
   }

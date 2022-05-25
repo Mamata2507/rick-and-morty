@@ -12,34 +12,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     try{
         const locationResponse = await fetch(`https://rickandmortyapi.com/api/location/${context.params!.id}`);
         const location = await locationResponse.json();
-        if(location.error) 
-            return { 
-                redirect: { 
-                    destination: "/404", 
-                    permanent: false 
-                } 
-            }
+        if(location.error) return { redirect: { destination: "/404", permanent: false } }
         
         const ids = [0];
-        for (const resident of location.residents)
+        for (const resident of location.residents) 
             ids.push(resident.split("/").pop());
 
         const residentsResponse = await fetch(`https://rickandmortyapi.com/api/character/${ids.join(",")}`)
         const residents = await residentsResponse.json();
-        if(!residents.length) 
-            return { 
-                props: { 
-                    location, 
-                    error: "No residents found in this location" 
-                } 
-            }
+        if(!residents.length) return { props: { location, error: "No residents found in this location" } }
 
-        return {
-            props: {
-                location,
-                residents
-            }
-        }
+        return { props: { location, residents } }
     }catch {
         return { redirect: { destination: "/500", permanent: false } }
     }
