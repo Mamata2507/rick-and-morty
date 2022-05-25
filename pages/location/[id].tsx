@@ -9,20 +9,30 @@ import { ResidentType } from "../../types/resident"
 import styles from "../../styles/ResidentsPage.module.css"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const ids: Array<Number> = [0];
-
     try{
         const locationResponse = await fetch(`https://rickandmortyapi.com/api/location/${context.params!.id}`);
         const location = await locationResponse.json();
-        if(location.error) return { redirect: { destination: "/404", permanent: false } }
-
+        if(location.error) 
+            return { 
+                redirect: { 
+                    destination: "/404", 
+                    permanent: false 
+                } 
+            }
         
+        const ids = [0];
         for (const resident of location.residents)
             ids.push(resident.split("/").pop());
 
         const residentsResponse = await fetch(`https://rickandmortyapi.com/api/character/${ids.join(",")}`)
-        let residents = await residentsResponse.json();
-        if(!residents.length) return { props: { location, error: "No residents found in this location" } }
+        const residents = await residentsResponse.json();
+        if(!residents.length) 
+            return { 
+                props: { 
+                    location, 
+                    error: "No residents found in this location" 
+                } 
+            }
 
         return {
             props: {
@@ -45,12 +55,10 @@ function Residents({ location, residents, error }: ResidentsProps) {
     return (
         <Layout>
             <Head>
-                { /* eslint-disable-next-line react/no-unescaped-entities */ }
-                <title>Rick and Morty - { location.name }'s residents</title>
+                <title>Rick and Morty - { location.name }&apos;s residents</title>
             </Head>
             <div className={styles.header}>
-                { /* eslint-disable-next-line react/no-unescaped-entities */ }
-                <h1 className={styles.heading}>{ location.name }'s residents</h1>
+                <h1 className={styles.heading}>{ location.name }&apos;s residents</h1>
                 <div className={styles.info}>
                     <div>
                         <span className={styles.badge}>Type</span>{ location.type ? location.type : "None" }
