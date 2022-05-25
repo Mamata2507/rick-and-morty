@@ -1,6 +1,6 @@
 # Rick and Morty
 
-An website where you can view locations and residents using [this](https://rickandmortyapi.com/) API
+A website where you can view locations and residents in Rick and Morty, 🤪 Wubbalubbadubdub! Built with using [this](https://rickandmortyapi.com/) API.
 
 ## How to run
 
